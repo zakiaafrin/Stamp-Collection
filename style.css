@@ -1,0 +1,328 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(224, 221, 221);
+}
+.row {
+    background-color: white;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+h1 {
+    border-bottom: 2px dashed rgb(71, 2, 85);
+}
+
+a:link {
+    text-decoration: none;
+}
+.header {
+  background-color: #9933cc;
+  color: #ffffff;
+  padding: 15px;
+}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 16px;
+    overflow: hidden;
+  }
+  
+ul.topnav li {float: left;}
+  
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+ul.topnav li a:hover:not(.active) {
+    background-color: #56087d;
+    border-radius: 0px 25px 0px 25px;
+}
+  
+ul.topnav li a.active {
+    background-color: #f01a62;      
+    border-radius: 0px 25px 0px 25px;
+}
+
+ul.topnav li.right {float: right;}
+  
+@media screen and (max-width: 600px) {
+    ul.topnav li.right, 
+    ul.topnav li {float: none;}
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 20px;
+  background-color: #ee7c7b;
+  border-radius: 10px 10px 10px 10px;
+  color: #ffffff;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.12), 0 3px 2px rgba(0,0,0,0.24);
+}
+
+.menu li:hover {
+  background-color: #00fee3;
+}
+
+.aside {
+  background-color: #ee7c7b;
+  padding: 10px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.footer {
+    background-color: #9933cc;
+    color: #ffffff;
+    text-align: center;
+    font-size: 15px;
+    padding: 4px;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 12.5%; text-align: center; font-weight: bold;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 75%; text-align: center;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+#rightnav {
+    margin-top: 15px;
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.product-list {
+    margin-bottom: 10px;
+    clear: both;
+}
+
+.product-list h2 {
+    padding: 0px 0px 7px 0px;
+    color: #3B1C00;
+    border-bottom: 1px dashed #3B1C00;
+    margin-bottom: 5px;
+}
+
+.pages {
+    background: #FF9C1B;
+    border: 1px solid #CCC;
+    padding: 0px 7px;
+}
+
+.product-list li {
+    float: left;
+    width: 220px;
+    margin: 15px 3px 0px 3px;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid #CCC;
+    padding: 10px 9px;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    border: 0;
+    width: 100%;
+}
+
+.product-list .name a {
+    color: #000000;
+    font-weight: bold;
+}
+
+.view {
+    background: #f3f3f3;
+    padding: 3px 0px;
+}
+
+.product-list .view {
+    clear: both;
+    margin: 5px 0;
+}
+
+.product-list .view a {
+    padding: 1px 0px;
+    text-decoration: none;
+}
+
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+  
+button {
+    background-color: #ee578b;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+  
+button:hover {
+    opacity: 0.8;
+}
+  
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+  
+.imgcontainer {
+    margin: -9px 0 -12px 0;
+}
+  
+.container {
+    font-size: 17.5px;
+    padding: 16px;
+}
+  
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+ 
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+
+.display img{
+    width: 150px;
+    height: 150px;
+}
+
+td {
+    background-color: #e4d8f8;
+}
