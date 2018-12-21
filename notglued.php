@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include("connection.php");
-$query = "SELECT collection.*,admin.* FROM collection JOIN admin ON collection.admin = admin.id WHERE collection.status = 'no';";
+$query = "SELECT * FROM collection WHERE status='No'";
 $data = mysqli_query($conn, $query);
 $total = mysqli_num_rows($data);
 
@@ -14,7 +14,7 @@ include("inc/header.php");
         <li><a href="usa.php">USA</a></li>
         <li><a href="australia.php">Australia</a></li>
         <li><a href="london.php">London</a></li>
-        <li class="right"><a href="admin.php">Admin</a></li>
+        <li class="right"><a href="indexadmin.php">Admin</a></li>
     </ul>
 </div>
 <div class="row">

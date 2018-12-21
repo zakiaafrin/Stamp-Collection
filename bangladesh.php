@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include("connection.php");
-$query = "SELECT collection.*,admin.* FROM collection JOIN admin ON collection.admin = admin.id WHERE collection.country='Bangladesh';";
+$query = "SELECT * FROM collection WHERE country='Bangladesh'";
 $data = mysqli_query($conn, $query);
 $total = mysqli_num_rows($data);
 
@@ -14,7 +14,7 @@ include("inc/header.php");
         <li><a href="usa.php">USA</a></li>
         <li><a href="australia.php">Australia</a></li>
         <li><a href="london.php">London</a></li>
-        <li class="right"><a href="admin.php">Admin</a></li>
+        <li class="right"><a href="indexadmin.php">Admin</a></li>
     </ul>
 </div>
 <div class="row">
@@ -31,9 +31,6 @@ include("inc/header.php");
     <h1>Bangladesh</h1>
     <div id="rightnav">
             <div class="product-list">
-                    <!-- <a class="pages" href="?page=products&amp;more=previous&amp;offset=0">&lt;prev</a>
-            &nbsp;|&nbsp;
-            <a class="pages" href="?page=products&amp;more=next&amp;offset=0">next&gt;</a> -->
                 <ul>
             <?php 
 if($total !=0){

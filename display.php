@@ -3,14 +3,14 @@ session_start();
 error_reporting(0);
 include("connection.php");
 
-$userprofile = $_SESSION['username'];
+$userprofile = ucwords($_SESSION['username']);
 if($userprofile == TRUE) {
 
 } else {
     header('location:adminlogin.php');
 }
 
-$query = "SELECT collection.* FROM collection JOIN admin ON collection.admin = admin.id WHERE admin.username='$userprofile'";
+$query = "SELECT * FROM collection WHERE admin='$userprofile'";
 $data = mysqli_query($conn, $query);
 $total = mysqli_num_rows($data);
 
@@ -24,7 +24,7 @@ include("inc/header.php");
             <li><a href="adminaustralia.php">Australia</a></li>
             <li><a href="adminlondon.php">London</a></li>
             <li class="right"><a href="adminlogout.php">Log Out</a></li>
-            <li class="right"><a href="admin.php">Admin</a></li>
+            <li class="right"><h4><?php echo "Welcome ".$userprofile."!";?></h4></li>
         </ul>
     </div>    
     <div class="row">
@@ -40,7 +40,7 @@ include("inc/header.php");
         </ul>
       </div>
       <div class="col-6 col-s-9">
-        <h1>Update Stamps</h1>
+      <h1>Display Stamps</h1>
         <div id="rightnav">
             <div class="product-list head">
                     <!-- <a class="pages" href="?page=products&amp;more=previous&amp;offset=0">&lt;prev</a>
@@ -49,8 +49,7 @@ include("inc/header.php");
                 <ul>
                 <table style='width:100%;'>
                     <tr style='text-align:center; background-color:pink;'>
-                        <th style="padding: 20px;">Serial No</th>
-                        <th>Image</th>
+                        <th style="padding: 20px;">Image</th>
                         <th>Stamp Name</th>
                         <th>Stamp Size</th>
                         <th>Glued</th>
@@ -63,17 +62,16 @@ include("inc/header.php");
 <?php 
 if($total !=0){
    while($total = mysqli_fetch_assoc($data)){
-       echo " <tr style='text-align:center;'>
-                  <td>".$total['id']."</td>
-                   <td><a href='$total[image]'><img src='".$total['image']."' style='width: 200px; height: 200px;'/></a></td>
+       echo " <tr>
+                   <td><a href='$total[image]'><img src='".$total['image']."' style='width: 220px; height: 180px;'/></a></td>
                    <td>".$total['stamp_name']."</td>
                    <td>".$total['size']."</td>
                    <td>".$total['status']."</td>
                    <td>".$total['stamp_count']."</td>
                    <td>".$total['country']."</td>
                    <td>".$total['year_issued']."</td>
-                   <td><a href='update.php?slno=$total[id]&stpname=$total[stamp_name]&stpsize=$total[size]&gl=$total[status]&stpcount=$total[stamp_count]&cntry=$total[country]&yi=$total[year_issued]&adid=$total[admin]'>Edit</a></td>
-                   <td><a href='delete.php?slno=$total[id]&stpname=$total[stamp_name]&stpsize=$total[size]&gl=$total[status]&stpcount=$total[stamp_count]&cntry=$total[country]&yi=$total[year_issued]&adid=$total[admin]' onclick='return checkdelete()'>Delete</a></td>
+                   <td style='color:blue;'><b><a href='update.php?slno=$total[id]&stpname=$total[stamp_name]&stpsize=$total[size]&gl=$total[status]&stpcount=$total[stamp_count]&cntry=$total[country]&yi=$total[year_issued]&adid=$total[admin]'>Edit</a></b></td>
+                   <td style='color:red;'><b><a href='delete.php?slno=$total[id]&stpname=$total[stamp_name]&stpsize=$total[size]&gl=$total[status]&stpcount=$total[stamp_count]&cntry=$total[country]&yi=$total[year_issued]&adid=$total[admin]' onclick='return checkdelete()'>Delete</a></b></td>
                </tr>";
    }
 } else {

@@ -1,7 +1,7 @@
 <?php
     session_start();
     include("connection.php");
-    // error_reporting(0);
+    error_reporting(0);
     if(count($_SESSION)) header("Location: admin.php");
 ?>
 
@@ -47,11 +47,11 @@
     <?php
 
 if(isset($_POST['submit'])){
-   $name=$_POST['username'];
+   $name=ucwords($_POST['username']);
    $email=$_POST['email'];
    $pass=$_POST['psw'];
 
-   $user_sql = "SELECT * FROM admin WHERE username='$user'";
+   $user_sql = "SELECT * FROM admin WHERE username='$name'";
    $email_sql = "SELECT * FROM admin WHERE email='$email'";
    $con_user = mysqli_query($conn, $user_sql);
    $con_email = mysqli_query($conn, $email_sql);

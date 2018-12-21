@@ -2,7 +2,7 @@
 error_reporting(0);
 include("connection.php");
 
-$query = "SELECT collection.* FROM collection JOIN admin ON collection.admin = admin.id ORDER BY RAND() LIMIT 15 ";
+$query = "SELECT collection.* FROM collection JOIN admin ON collection.admin = admin.username ORDER BY RAND() LIMIT 10 ";
 
 
 $data = mysqli_query($conn, $query);
@@ -16,7 +16,7 @@ if($total !=0){
                 <?php 
    while($total = mysqli_fetch_assoc($data)){
        echo " <tr style='text-align:center;'>
-                   <td><a href='$total[image]'><img src='".$total['image']."' style='width: 134; height: 90;'/></a></td>
+                   <td><a href='$total[image]'><img src='".$total['image']."' style='width: 134; height: 85;'/></a></td>
             </tr>";
    }
 } else {

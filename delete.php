@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("connection.php");
-$userprofile = $_SESSION['username'];
+$userprofile = ucwords($_SESSION['username']);
 if($userprofile == TRUE) {
 
 } else {
@@ -11,7 +11,7 @@ $serialno = $_GET['slno'];
     $query = "DELETE FROM collection WHERE id = $serialno";
     $data = mysqli_query($conn, $query);
     if($data) {
-        echo "<script>alert('Record Deleted from Table succesfully')</script>";
+        echo "<script>alert('Record Deleted succesfully')</script>";
         ?>
         <META HTTP-EQUIV="Refresh" CONTENT="0; URL=display.php">
         <?php

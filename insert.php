@@ -3,7 +3,7 @@ session_start();
 error_reporting(0);
 include("connection.php");
 
-$userprofile = $_SESSION['username'];
+$userprofile = ucwords($_SESSION['username']);
 if($userprofile == TRUE) {
 
 } else {
@@ -19,7 +19,7 @@ if($userprofile == TRUE) {
             <li><a href="adminaustralia.php">Australia</a></li>
             <li><a href="adminlondon.php">London</a></li>
             <li class="right"><a href="adminlogout.php">Log Out</a></li>
-            <li class="right"><a href="admin.php">Admin</a></li>
+            <li class="right"><h4><?php echo "Welcome ".$userprofile."!";?></h4></li>
         </ul>
     </div>    
 <div class="row">
@@ -40,8 +40,7 @@ if($userprofile == TRUE) {
     <div class="product-list">
     <ul>
     <form action="" method="post" enctype="multipart/form-data">
-       Serial No <input type="text" name="serialno" value="">
-       Admin ID (Default)  <input type="text" name="adminid" value="">
+       Admin Username <input type="text" name="admin" value="">
        Stamp Name <input type="text" name="stampname" value="">
        Upload Image <input type="file" name="uploadfile" value=""/><br><br>
        Stamp Size <input type="text" name="stampsize" value="">
@@ -49,38 +48,37 @@ if($userprofile == TRUE) {
        Stamp Count <input type="text" name="stampcount" value="">
        Country <input type="text" name="country" value="">
        Year Issued <input type="text" name="yearissued" value="">
-       <input type="submit" name="submit" value="submit">
+       <button><input type="submit" name="submit" value="submit"></button>
    </form>
 <?php
 if($_POST['submit']){
-   $slno=$_POST['serialno'];
-   $adid=$_POST['adminid'];
-   $stpname=$_POST['stampname'];
+   $ad=ucwords($_POST['admin']);
+   $stpname=ucwords($_POST['stampname']);
    $filename= $_FILES["uploadfile"]["name"];
    $tempname= $_FILES["uploadfile"]["tmp_name"];
    $folder= "img/".$filename;
    move_uploaded_file($tempname,$folder);
    $stpsize=$_POST['stampsize'];
-   $gl=$_POST['glued'];
+   $gl=ucwords($_POST['glued']);
    $stpcount=$_POST['stampcount'];
-   $cntry=$_POST['country'];
+   $cntry=ucwords($_POST['country']);
    $yi=$_POST['yearissued'];
 
-   if($slno!="" && $stpname!="" && !$filename="" && $stpsize!="" && $gl!="" && $stpcount!="" && $cntry!="" && $yi!="" && $adid!=""){
-       $query = "INSERT INTO collection VALUES ('$slno','$stpname','$folder', '$stpsize', '$gl', '$stpcount', '$cntry', '$yi','$adid')";
-       $data = mysqli_query($conn, $query);
+   if($stpname!="" && !$filename="" && $stpsize!="" && $gl!="" && $stpcount!="" && $cntry!="" && $yi!="" && $ad!=""){
+       $query = "INSERT INTO collection(stamp_name, image, size, status, stamp_count, country, year_issued, admin) VALUES ('$stpname','$folder', '$stpsize', '$gl', '$stpcount', '$cntry', '$yi','$ad');";
+        $data = mysqli_query($conn, $query);
 
        if($data){
-       echo "<font color = '#3ac93a'><strong>Data inserted successfully.</strong> <br/><a href='display.php'>Check Updated List Here.</a>";
+       echo "<font size:'16px' font color='green'>"."<h5>Data Inserted Successfully.</h5>"."<font color='blue'>"."<h5><a href='display.php'>Check Updated List Here.</a></h5> ";
        }
-   }else{
+   } else {
        echo "All fields are required. Record Not Updated. <br/><a href='display.php'>Check Stamp List Here.</a>";
    }
 }
 ?>
-    </ul>
+            </ul>
+        </div>
     </div>
-</div>
 </div>
 
 <?php include "inc/footer.php"; ?>

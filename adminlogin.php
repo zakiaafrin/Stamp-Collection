@@ -10,7 +10,7 @@ $error = isset($_GET['error']);
       <li><a href="usa.php">USA</a></li>
       <li><a href="australia.php">Australia</a></li>
       <li><a href="london.php">London</a></li>
-      <li class="right"><a class="active" href="admin.php">Admin</a></li>
+      <li class="right"><a class="active" href="indexadmin.php">Admin</a></li>
     </ul>
   </div>
   <div class="row">
@@ -25,6 +25,7 @@ $error = isset($_GET['error']);
     </div>
     <div class="col-6 col-s-9">
       <h1>Admin Log In</h1>
+      <ul>
       <form action="" method="post" style="border:3px solid #f1f1f1">
         <div class="imgcontainer">
           <img src="admin.png" alt="Admin" style="width:15%; height:24%;">
@@ -34,32 +35,32 @@ $error = isset($_GET['error']);
           <input type="text" name="username" value="" placeholder="Enter Username" required><br />
           <label for="psw"><b>Password</b></label>
           <input type="password" name="password" value="" placeholder="Enter Password" required><br />
+    <?php
+if(isset($_POST['submit'])){
+    $user=ucwords($_POST['username']);
+    $pwd=$_POST['password'];
+    $query = "SELECT * FROM admin WHERE username='$user' && password='$pwd' ";
+    $data = mysqli_query($conn, $query);
+    $result = mysqli_num_rows($data);
+    if ($result == 1){
+      $_SESSION['username'] = $user;
+        header('location:indexadmin.php');
+    }else{
+        echo "<div class='w3-container w3-pale-red'><h6><b>Login Failed. Please enter a valid Username or Password.</b></h6></div>";
+    }
+  };
+?>
           <button><input type="submit" name="submit" value="Login"></button><br />
           <label>
             <input type="checkbox" checked="checked" name="remember">Remember me
           </label>
         </div>
       </form>
+    </ul>
       <div style="text-align:center">Don't Have An Account?
         <b style="color:#762df8;"><a href="adminsignup.php">Sign Up</a>
         </b>
       </div>
     </div>
 
-    <?php
-if(isset($_POST['submit'])){
-    $user=$_POST['username'];
-    $pwd=$_POST['password'];
-    $query = "SELECT * FROM admin WHERE username='$user' && password='$pwd' ";
-    $data = mysqli_query($conn, $query);
-    $result = mysqli_num_rows($data);
-    if ($result == 1){
-        $_SESSION['username'] = $user;
-        echo "right";
-        header('location:admin.php');
-    }else{
-        echo "<font color = 'red'>Login failed.Please enter a valid Username or Password.";
-    }
-};
-?>
 <?php include "inc/footer.php"; ?>

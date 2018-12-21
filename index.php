@@ -14,7 +14,7 @@ include("inc/header.php");
             <li><a href="usa.php">USA</a></li>
             <li><a href="australia.php">Australia</a></li>
             <li><a href="london.php">London</a></li>
-            <li class="right"><a href="admin.php">Admin</a></li>
+            <li class="right"><a href="indexadmin.php">Admin</a></li>
         </ul>
     </div>
     <div class="row">

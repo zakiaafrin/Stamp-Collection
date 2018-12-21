@@ -3,13 +3,13 @@ session_start();
 error_reporting(0);
 include("connection.php");
 
-$userprofile = $_SESSION['username'];
+$userprofile = ucwords($_SESSION['username']);
 if($userprofile == TRUE) {
 
 } else {
     header('location:adminlogin.php');
 }
-$query = "SELECT collection.* FROM collection JOIN admin ON collection.admin = admin.id WHERE admin.username='$userprofile' AND collection.status = 'No';";
+$query = "SELECT * FROM collection WHERE admin='$userprofile'AND status = 'No'";
 $data = mysqli_query($conn, $query);
 $total = mysqli_num_rows($data);
 
@@ -22,7 +22,7 @@ include("inc/header.php");
         <li><a href="adminaustralia.php">Australia</a></li>
         <li><a href="adminlondon.php">London</a></li>
             <li class="right"><a href="adminlogout.php">Log Out</a></li>
-        <li class="right"><a href="admin.php">Admin</a></li>
+        <li class="right"><h4><?php echo "Welcome ".$userprofile."!";?></h4></li>
     </ul>
 </div>
 <div class="row">
@@ -38,7 +38,7 @@ include("inc/header.php");
     </ul>
   </div>
   <div class="col-6 col-s-9">
-    <h1>This Stamps were not glued to any Album</h1>
+  <h1>This Stamps were not glued to any Album</h1>
     <div id="rightnav">
             <div class="product-list">
                 <ul>

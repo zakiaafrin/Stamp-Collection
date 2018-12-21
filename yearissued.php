@@ -3,7 +3,7 @@ session_start();
 error_reporting(0);
 include("connection.php");
 
-$query = "SELECT collection.*,admin.* FROM collection JOIN admin ON collection.admin = admin.id ORDER BY collection.year_issued ASC;";
+$query = "SELECT * FROM collection ORDER BY year_issued ASC";
 $data = mysqli_query($conn, $query);
 $total = mysqli_num_rows($data);
 
@@ -15,7 +15,7 @@ include("inc/header.php");
         <li><a href="usa.php">USA</a></li>
         <li><a href="australia.php">Australia</a></li>
         <li><a href="london.php">London</a></li>
-        <li class="right"><a href="admin.php">Admin</a></li>
+        <li class="right"><a href="indexadmin.php">Admin</a></li>
     </ul>
 </div>
 <div class="row">
@@ -29,7 +29,7 @@ include("inc/header.php");
     </ul>
   </div>
   <div class="col-6 col-s-9">
-    <h1>Stamps are sorted by Year Issued</h1>
+  <h1>Stamps are sorted by Year Issued</h1>
     <div id="rightnav">
             <div class="product-list">
                 <ul>
