@@ -1,7 +1,7 @@
 <?php
    $servername ="localhost";
-   $username="phpmyadmin";
-   $password="@1234Nijhum";
+   $username="root";
+   $password="";
    $dbname="stamp_collection";
 
    $conn = mysqli_connect($servername,$username,$password,$dbname);
