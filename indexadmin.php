@@ -15,12 +15,12 @@ $total = mysqli_num_rows($data);
 
 include("inc/header.php"); 
 ?>
-
             <li><a class="active" href="indexadmin.php">Home</a></li>
             <li><a href="adminbangladesh.php">Bangladesh</a></li>
             <li><a href="adminusa.php">USA</a></li>
             <li><a href="adminaustralia.php">Australia</a></li>
             <li><a href="adminlondon.php">London</a></li>
+            <li><a href="adminothers.php">Other Countries</a></li>
             <li class="right"><a href="adminlogout.php">Log Out</a></li>
             <li class="right"><h4><?php echo "Welcome ".$userprofile."!";?></h4></li>
         </ul>
@@ -46,23 +46,25 @@ include("inc/header.php");
 if($total !=0){
     while($result = mysqli_fetch_assoc($data)){
             echo   " 
-                    <li>
+            <li style='width: 260px;'>
                         <div class='image'>
-                            <a href=".'$result[image]'."><img src='".$result['image']."' width='200' height='165'></a>
+                            <a href=".$result['image']."><img src='".$result['image']."' width='200' height='165'></a>
                         </div>
-                        <div class='detail'>
-                            <p class='name'>".$result['stamp_name']."</p>
-                            <p class='view'><a href='?page=detail&amp;id=00000019'>view details &gt;&gt;</a></p>";
+                        <div class='detail' style='color:#5c0289; line-height:7px; font-size:13px; text-align:justify;'>
+                            <p class='name'><b>Stamp Name : </b>".$result['stamp_name']."</p>
+                            <p class='name'><b>Stamp Size : </b>".$result['size']."</p>
+                            <p class='name'><b>Glue Status : </b>".$result['status']."</p>
+                            <p class='name'><b>Number Of Stamp : </b>".$result['stamp_count']."</p>
+                            <p class='name'><b>Country : </b>".$result['country']."</p>
+                            <p class='name'><b>Year Issued : </b>".$result['year_issued']."</p>";
                 }
             } else {
                 echo "No record found";
-            }
-            
-                            "<p class='view'><a href='?page=detail&amp;id=00000019'>view details &gt;&gt;</a></p>
+            }            
+                            "
                         </div>
                     </li>";
             ?>
-
                 </ul>
             </div>
         </div>

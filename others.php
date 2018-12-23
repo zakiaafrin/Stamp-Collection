@@ -3,7 +3,7 @@ session_start();
 error_reporting(0);
 include("connection.php");
 
-$query = "SELECT * FROM collection WHERE status='No'";
+$query = "SELECT * FROM collection WHERE country NOT IN ('Bangladesh', 'United States', 'Australia', 'London');";
 $data = mysqli_query($conn, $query);
 $total = mysqli_num_rows($data);
 
@@ -14,7 +14,7 @@ include("inc/header.php");
         <li><a href="usa.php">USA</a></li>
         <li><a href="australia.php">Australia</a></li>
         <li><a href="london.php">London</a></li>
-        <li><a href="others.php">Other Countries</a></li>
+        <li><a class="active" href="others.php">Other Countries</a></li>
         <li class="right"><a href="indexadmin.php">Admin</a></li>
     </ul>
 </div>
@@ -25,11 +25,11 @@ include("inc/header.php");
             <li><a href="yearissued.php">Year Issued</a></li>
             <li><a href="stampno.php">Number Of Stamps</a></li>
             <li><a href="glued.php">Glued</a></li>
-            <li><a class="active" href="notglued.php">Not Glued</a></li>
+            <li><a href="notglued.php">Not Glued</a></li>
         </ul>
 </div>
 <div class="col-6 col-s-9">
-    <h1>This Stamps were not glued to any Album</h1>
+    <h1>Other Countries</h1>
     <div id="rightnav">
         <div class="product-list">
             <ul>
@@ -42,19 +42,18 @@ if($total !=0){
                     <a href=".$result['image']."><img src='".$result['image']."' width='200' height='190'></a>
                 </div>
                 <div class='detail'>
-                    <p class='name'>Name : ".$result['stamp_name']."</p>
-                    <p class='name'>Glued : ".$result['status']."</p>";
-        }
+                    <p class='name'>".$result['stamp_name']."</p>";
+}
     } else {
         echo "No record found";
-    }           
-            "
+    }            
+                "
                 </div>
             </li>";
-    ?>
-                </ul>
-            </div>
+?>
+             </ul>
         </div>
     </div>
+</div>
 
 <?php include "inc/footer.php"; ?>

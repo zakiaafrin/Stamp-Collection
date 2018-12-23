@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2018 at 07:14 PM
+-- Generation Time: Dec 23, 2018 at 06:17 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -70,19 +70,19 @@ CREATE TABLE `collection` (
 
 INSERT INTO `collection` (`id`, `stamp_name`, `image`, `size`, `status`, `stamp_count`, `country`, `year_issued`, `admin`) VALUES
 (1, 'Partying', 'img/girl.jpg', '30mm x 42mm', 'No', 2, 'United States', '1850', 'Jeme'),
-(2, 'Crown', 'img/rani.jpg', '32 mm x 45 mm', 'No', 1, 'Australia', '1915', 'Jeme'),
+(2, 'Crown', 'img/rani.jpg', '32 mm x 45 mm', 'No', 1, 'Australia', '1915', 'Afrin'),
 (3, 'Peanuts', 'img/peanut.jpg', '42mm x 42mm', 'No', 2, 'London', '1854', 'Jeme'),
 (4, 'Definitive', 'img/definitive.jpg', '32mm x 42mm', 'Yes', 4, 'Bangladesh', '1880', 'Zakia'),
-(5, 'Independence', 'img/independence.jpg', '40mm x 32mm', 'Yes', 3, 'United States', '1946', 'Zakia'),
+(5, 'Independence', 'img/independence.jpg', '40mm x 32mm', 'Yes', 3, 'United States', '1946', 'Nijhum'),
 (6, 'Jingle', 'img/jingle.png', '30mm x 42mm', 'Yes', 4, 'Australia', '1940', 'Zakia'),
-(7, 'Jubilee', 'img/jubilee.jpg', '42mm x 32mm', 'No', 2, 'London', '1930', 'Zakia'),
+(7, 'Jubilee', 'img/jubilee.jpg', '42mm x 32mm', 'No', 2, 'London', '1930', 'Afrin'),
 (8, 'Unique', 'img/unique.jpg', '32mm x 42mm', 'Yes', 4, 'Bangladesh', '1750', 'Zakia'),
 (9, 'Horerider', 'img/horserider.jpg', '30mm x 42mm', 'Yes', 1, 'United States', '1963', 'Zakia'),
-(10, 'Jhorna', 'img/jhorna.jpg', '42mm x 32mm', 'Yes', 2, 'Bangladesh', '1860', 'Zakia'),
+(10, 'Jhorna', 'img/jhorna.jpg', '42mm x 32mm', 'Yes', 2, 'Bangladesh', '1860', 'Jawad'),
 (11, 'Basel', 'img/basel.jpg', '32mm x 42mm', 'No', 1, 'Australia', '1890', 'Zakia'),
 (12, 'Washington', 'img/washington.jpg', '32mm x 42mm', 'Yes', 1, 'United States', '1970', 'Jeme'),
 (13, 'Health', 'img/health.jpg', '32mm x 32mm', 'Yes', 3, 'Bangladesh', '1910', 'Zakia'),
-(14, 'Penny', 'img/penny.jpg', '30mm x 42mm', 'Yes', 1, 'London', '1983', 'Zakia'),
+(14, 'Penny', 'img/penny.jpg', '30mm x 42mm', 'Yes', 1, 'London', '1983', 'Afrin'),
 (15, 'Doyel', 'img/doyel.jpg', '34mm x 42mm', 'Yes', 3, 'Bangladesh', '1875', 'Zakia'),
 (16, 'Britain', 'img/britain.jpg', '42mm x 32mm', 'Yes', 1, 'London', '1967', 'Zakia'),
 (17, 'Washington2', 'img/washington2.jpg', '32mm x 42mm', 'Yes', 1, 'United States', '1943', 'Zakia'),
@@ -104,17 +104,21 @@ INSERT INTO `collection` (`id`, `stamp_name`, `image`, `size`, `status`, `stamp_
 (33, 'Captain', 'img/78.jpg', '30 mm x 42 mm', 'No', 3, 'United States', '1892', 'Afrin'),
 (34, 'Boat', 'img/boat.jpg', '42 mm x 42 mm', 'No', 1, 'Bangladesh', '1953', 'Jeme'),
 (35, 'Edited', 'img/edited.jpg', '42 mm x 42 mm', 'No', 1, 'London', '1888', 'Jeme'),
-(36, 'jony', 'kjhg', '32mm x 40mm', 'Yes', 3, 'Australia', '1940', 'Zakia'),
 (40, 'Manpower', 'img/china.jpg', '32 mm x 45 mm', 'No', 2, 'United States', '1864', 'Zakia'),
-(43, 'demo', 'img/profile.jpg', '32 mm x 42 mm', 'No', 1, 'London', '1967', 'Zakia'),
-(48, 'abcd', 'img/25.jpg', '42 mm x 42 mm', 'No', 1, 'Bangladesh', '1867', 'Zakia'),
+(48, 'Transport', 'img/25.jpg', '42 mm x 42 mm', 'No', 1, 'Bangladesh', '1867', 'Zakia'),
 (49, 'Creating', 'img/67.jpg', '42 mm x 42 mm', 'Yes', 1, 'Bangladesh', '1987', 'Nijhum'),
 (50, 'Capital', 'img/28.jpg', '42 mm x 32 mm', 'No', 2, 'Bangladesh', '1944', 'Nijhum'),
 (51, 'All', 'img/21.jpg', '32 mm x 45 mm', 'No', 3, 'London', '1876', 'Nijhum'),
 (52, 'Now', 'img/31.jpg', '42 mm x 42 mm', 'No', 4, 'Australia', '1922', 'Nijhum'),
 (53, 'Map', 'img/13.jpg', '42 mm x 42 mm', 'Yes', 2, 'London', '1973', 'Afrin'),
 (55, 'First', 'img/56.jpg', '42 mm x 42 mm', 'No', 2, 'United states', '1982', 'Jawad'),
-(57, 'Words', 'img/79.jpg', '32 mm x 42 mm', 'No', 2, 'London', '1987', 'Jawad');
+(57, 'Words', 'img/79.jpg', '32 mm x 42 mm', 'No', 2, 'London', '1987', 'Jawad'),
+(60, 'Check', 'img/profile.jpg', '42 mm x 32 mm', 'Yes', 2, 'London', '1997', 'Zakia'),
+(62, 'Other Country', 'img/19.jpg', '32 mm x 42 mm', 'No', 2, 'Saudi Arabia', '1874', 'Zakia'),
+(64, 'Dhdnh', 'img/27.jpg', '32 mm x 42 mm', 'Yes', 1, 'London', '1864', 'Afrin'),
+(65, 'Other', 'img/33.jpg', '32 mm x 45 mm', 'No', 2, 'Oman', '1867', 'Afrin'),
+(66, 'Ausmap', 'img/13.jpg', '42 mm x 42 mm', 'No', 1, 'Australia', '1986', 'Jawad'),
+(68, 'Arob', 'img/17.jpg', '42 mm x 42 mm', 'No', 3, 'England', '1867', 'Jawad');
 
 --
 -- Indexes for dumped tables
@@ -146,7 +150,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `collection`
 --
 ALTER TABLE `collection`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
